@@ -3,7 +3,7 @@ Discussion Manager for orchestrating multi-agent conversations.
 Manages turn-taking, message flow, and human participation.
 """
 
-from typing import List, Optional
+from typing import List
 from agents import Agent, AIAgent, HumanAgent
 import time
 
@@ -67,8 +67,15 @@ class Discussion:
             print(f"   TURN {self.current_turn}/{self.max_turns}")
             print(f"{'🔹'*30}\n")
             
+            # Create a copy to iterate over to avoid modification during iteration
+            agents_to_process = self.agents.copy()
+            
             # Each agent gets a turn
-            for agent in self.agents:
+            for agent in agents_to_process:
+                # Skip if agent was already removed
+                if agent not in self.agents:
+                    continue
+                    
                 # Get agent's response
                 try:
                     response = agent.respond(self.topic, self.conversation_history)
@@ -136,6 +143,9 @@ class DiscussionBuilder:
     
     def add_ai_agent(self, name: str, personality: str = "analyst"):
         """Add an AI agent with a specific personality"""
+        valid_personalities = ["optimist", "skeptic", "analyst", "creative", "pragmatist"]
+        if personality not in valid_personalities:
+            raise ValueError(f"Invalid personality '{personality}'. Must be one of: {', '.join(valid_personalities)}")
         self.agents.append(AIAgent(name, personality))
         return self
     
@@ -146,6 +156,8 @@ class DiscussionBuilder:
     
     def set_max_turns(self, turns: int):
         """Set maximum number of discussion turns"""
+        if turns < 1:
+            raise ValueError(f"Number of turns must be at least 1, got {turns}")
         self.max_turns = turns
         return self
     

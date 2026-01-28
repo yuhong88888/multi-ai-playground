@@ -4,8 +4,7 @@ Supports both AI agents and human participants.
 """
 
 import random
-import time
-from typing import List, Dict, Optional
+from typing import List, Dict
 from datetime import datetime
 
 

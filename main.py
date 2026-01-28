@@ -44,8 +44,16 @@ def create_custom_discussion(topic: str):
     print("4. creative - Innovative and imaginative")
     print("5. pragmatist - Practical and action-oriented")
     
-    num_ai = int(input("\nHow many AI agents? (1-10): ").strip() or "3")
-    num_ai = max(1, min(10, num_ai))
+    while True:
+        try:
+            num_ai_input = input("\nHow many AI agents? (1-10): ").strip()
+            num_ai = int(num_ai_input) if num_ai_input else 3
+            if 1 <= num_ai <= 10:
+                break
+            else:
+                print("⚠️  Please enter a number between 1 and 10.")
+        except ValueError:
+            print("⚠️  Invalid input. Please enter a number between 1 and 10.")
     
     personalities = ["optimist", "skeptic", "analyst", "creative", "pragmatist"]
     agent_names = ["Alex", "Blake", "Casey", "Drew", "Elle", "Finn", "Grace", "Henry", "Iris", "Jack"]
@@ -64,8 +72,17 @@ def create_custom_discussion(topic: str):
         print(f"  ✓ Added {human_name} (human)")
     
     # Set turns
-    turns = int(input("\nNumber of discussion turns (default: 5): ").strip() or "5")
-    builder.set_max_turns(turns)
+    while True:
+        try:
+            turns_input = input("\nNumber of discussion turns (default: 5): ").strip()
+            turns = int(turns_input) if turns_input else 5
+            if turns >= 1:
+                builder.set_max_turns(turns)
+                break
+            else:
+                print("⚠️  Please enter a positive number.")
+        except ValueError:
+            print("⚠️  Invalid input. Please enter a positive number.")
     
     print("\n✅ Discussion configured successfully!")
     return builder.build()
