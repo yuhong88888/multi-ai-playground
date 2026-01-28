@@ -1,74 +1,205 @@
-<header>
+# 🎭 Multi-AI Playground
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+_A platform where multiple AI agents discuss topics with each other and welcome human participants to join the conversation._
 
-# Introduction to GitHub
+## 🌟 Overview
 
-_Get started using GitHub in less than an hour._
+Multi-AI Playground is an interactive system that enables multiple AI agents with different personalities and perspectives to engage in meaningful discussions on various topics. Human users can join these conversations, contributing their own insights and perspectives alongside the AI agents.
 
-</header>
+### ✨ Key Features
 
-<!--
-  <<< Author notes: Course start >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
--->
+- **🤖 Multiple AI Agents**: Each agent has a unique personality (optimist, skeptic, analyst, creative, pragmatist)
+- **👥 Human Participation**: Humans can join discussions and interact with AI agents in real-time
+- **💬 Dynamic Conversations**: Turn-based discussion system with context-aware responses
+- **🎯 Topic-Focused**: All discussions center around a specific topic chosen by the user
+- **📊 Discussion Analytics**: Track participation, message counts, and conversation flow
 
-## Welcome
+## 🚀 Quick Start
 
-People use GitHub to build some of the most advanced technologies in the world. Whether you’re visualizing data or building a new game, there’s a whole community and set of tools on GitHub that can help you do it even better. GitHub Skills’ “Introduction to GitHub” course guides you through everything you need to start contributing in less than an hour.
+### Prerequisites
 
-- **Who is this for**: New developers, new GitHub users, and students.
-- **What you'll learn**: We'll introduce repositories, branches, commits, and pull requests.
-- **What you'll build**: We'll make a short Markdown file you can use as your [profile README](https://docs.github.com/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
-- **Prerequisites**: None. This course is a great introduction for your first day on GitHub.
-- **How long**: This course takes less than one hour to complete.
+- Python 3.7 or higher
 
-In this course, you will:
+### Installation
 
-1. Create a branch
-2. Commit a file
-3. Open a pull request
-4. Merge your pull request
+1. Clone the repository:
+```bash
+git clone https://github.com/yuhong88888/multi-ai-playground.git
+cd multi-ai-playground
+```
 
-### How to start this course
+2. (Optional) Install any additional dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-<!-- For start course, run in JavaScript:
-'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
-  template_name: 'introduction-to-github',
-  owner: '@me',
-  name: 'skills-introduction-to-github',
-  description: 'My clone repository',
-  visibility: 'public',
-}).toString()
--->
+### Running Your First Discussion
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=introduction-to-github&owner=%40me&name=skills-introduction-to-github&description=My+clone+repository&visibility=public)
+**Option 1: Using the main CLI**
+```bash
+python main.py "The future of artificial intelligence"
+```
 
-1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, most of the prompts will automatically fill in for you.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+**Option 2: Run an example**
+```bash
+python example_ai_only.py
+```
 
-<footer>
+## 📖 Usage Guide
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+### Command-Line Interface
+
+The main CLI provides several options:
+
+```bash
+# Basic usage with default settings (includes human participation)
+python main.py "Your topic here"
+
+# AI-only discussion (no human)
+python main.py "Climate change solutions" --no-human
+
+# Custom number of turns
+python main.py "Space exploration" --turns 8
+
+# Custom setup wizard
+python main.py "Education technology" --custom
+```
+
+### Human Participation
+
+When you join a discussion as a human participant:
+
+1. **Your Turn**: When it's your turn, you'll be prompted to enter your message
+2. **Skip**: Type `skip` to pass your turn without contributing
+3. **Quit**: Type `quit` to exit the discussion (AI agents will continue)
+
+### Example Programs
+
+Three example programs are included:
+
+1. **`example_ai_only.py`** - Simple AI-only discussion
+2. **`example_with_human.py`** - Discussion with human participation
+3. **`example_diverse.py`** - Large discussion with diverse AI personalities
+
+Run any example:
+```bash
+python example_ai_only.py
+python example_with_human.py
+python example_diverse.py
+```
+
+## 🎯 AI Agent Personalities
+
+Each AI agent has a unique personality that influences their perspective:
+
+| Personality | Description | Example Response Style |
+|------------|-------------|----------------------|
+| **Optimist** | Positive, enthusiastic, sees potential | "This has tremendous potential!" |
+| **Skeptic** | Critical, questioning, cautious | "We should consider the challenges..." |
+| **Analyst** | Data-driven, logical, methodical | "Looking at this analytically..." |
+| **Creative** | Innovative, imaginative, unconventional | "What if we approach this differently?" |
+| **Pragmatist** | Practical, action-oriented, realistic | "The practical approach would be..." |
+
+## 🔧 Programmatic Usage
+
+You can also use the Discussion API directly in your Python code:
+
+```python
+from discussion import DiscussionBuilder
+
+# Create a custom discussion
+discussion = (
+    DiscussionBuilder("Your topic here")
+    .add_ai_agent("Alice", "optimist")
+    .add_ai_agent("Bob", "skeptic")
+    .add_ai_agent("Charlie", "analyst")
+    .add_human_agent("You")
+    .set_max_turns(5)
+    .build()
+)
+
+# Run the discussion
+discussion.run()
+```
+
+## 📁 Project Structure
+
+```
+multi-ai-playground/
+├── agents.py              # Agent classes (AI and Human)
+├── discussion.py          # Discussion manager and builder
+├── main.py               # Main CLI application
+├── example_ai_only.py    # Example: AI-only discussion
+├── example_with_human.py # Example: Human participation
+├── example_diverse.py    # Example: Diverse agent discussion
+├── requirements.txt      # Python dependencies
+└── README.md            # This file
+```
+
+## 🎨 Customization
+
+### Creating Custom Agents
+
+You can extend the `AIAgent` class to create agents with custom behaviors:
+
+```python
+from agents import AIAgent
+
+class CustomAgent(AIAgent):
+    def respond(self, topic, conversation_history):
+        # Your custom logic here
+        return "Custom response"
+```
+
+### Adjusting Discussion Parameters
+
+- **Number of turns**: Control how long the discussion runs
+- **Number of agents**: Add as many agents as you want
+- **Agent mix**: Choose different combinations of personalities
+- **Human participation**: Include or exclude human participants
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+- Report bugs or suggest features via issues
+- Submit pull requests with improvements
+- Share interesting discussion topics or agent configurations
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🌐 Use Cases
+
+- **Education**: Explore different perspectives on complex topics
+- **Brainstorming**: Generate diverse ideas through multi-perspective discussion
+- **Research**: Study conversation dynamics and argument patterns
+- **Entertainment**: Create engaging dialogues on interesting subjects
+- **Training**: Practice moderation and discussion facilitation skills
+
+## 💡 Example Discussion Output
+
+```
+🎭 MULTI-AGENT DISCUSSION STARTING
+📌 Topic: The future of artificial intelligence
+👥 Participants: Alex (AI-optimist), Blake (AI-skeptic), Casey (AI-analyst), You (human)
+🔄 Maximum turns: 3
+
+============================================================
+🗣️  Alex [AI-optimist]:
+============================================================
+I think The future of artificial intelligence has tremendous 
+potential! it could revolutionize how we think about collaboration
+============================================================
+
+[... and so on ...]
+```
+
+## 🙏 Acknowledgments
+
+Built with Python and designed to foster meaningful multi-perspective discussions on any topic.
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/introduction-to-github) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2024 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+**Ready to start?** Run `python main.py "Your topic"` and join the conversation! 🚀
