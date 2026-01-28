@@ -1,75 +1,205 @@
-<header>
+# 🎭 Multi-AI Playground
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+_A platform where multiple AI agents discuss topics with each other and welcome human participants to join the conversation._
 
-# Introduction to GitHub
+## 🌟 Overview
 
-_Get started using GitHub in less than an hour._
+Multi-AI Playground is an interactive system that enables multiple AI agents with different personalities and perspectives to engage in meaningful discussions on various topics. Human users can join these conversations, contributing their own insights and perspectives alongside the AI agents.
 
-</header>
+### ✨ Key Features
 
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
+- **🤖 Multiple AI Agents**: Each agent has a unique personality (optimist, skeptic, analyst, creative, pragmatist)
+- **👥 Human Participation**: Humans can join discussions and interact with AI agents in real-time
+- **💬 Dynamic Conversations**: Turn-based discussion system with context-aware responses
+- **🎯 Topic-Focused**: All discussions center around a specific topic chosen by the user
+- **📊 Discussion Analytics**: Track participation, message counts, and conversation flow
 
-## Step 1: Create a branch
+## 🚀 Quick Start
 
-_Welcome to "Introduction to GitHub"! :wave:_
+### Prerequisites
 
-**What is GitHub?**: GitHub is a collaboration platform that uses _[Git](https://docs.github.com/get-started/quickstart/github-glossary#git)_ for versioning. GitHub is a popular place to share and contribute to [open-source](https://docs.github.com/get-started/quickstart/github-glossary#open-source) software.
-<br>:tv: [Video: What is GitHub?](https://www.youtube.com/watch?v=pBy1zgt0XPc)
+- Python 3.7 or higher
 
-**What is a repository?**: A _[repository](https://docs.github.com/get-started/quickstart/github-glossary#repository)_ is a project containing files and folders. A repository tracks versions of files and folders. For more information, see "[About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)" from GitHub Docs.
+### Installation
 
-**What is a branch?**: A _[branch](https://docs.github.com/en/get-started/quickstart/github-glossary#branch)_ is a parallel version of your repository. By default, your repository has one branch named `main` and it is considered to be the definitive branch. Creating additional branches allows you to copy the `main` branch of your repository and safely make any changes without disrupting the main project. Many people use branches to work on specific features without affecting any other parts of the project.
+1. Clone the repository:
+```bash
+git clone https://github.com/yuhong88888/multi-ai-playground.git
+cd multi-ai-playground
+```
 
-Branches allow you to separate your work from the `main` branch. In other words, everyone's work is safe while you contribute. For more information, see "[About branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)".
+2. (Optional) Install any additional dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-**What is a profile README?**: A _[profile README](https://docs.github.com/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)_ is essentially an "About me" section on your GitHub profile where you can share information about yourself with the community on GitHub.com. GitHub shows your profile README at the top of your profile page. For more information, see "[Managing your profile README](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)".
+### Running Your First Discussion
 
-![profile-readme-example](/images/profile-readme-example.png)
+**Option 1: Using the main CLI**
+```bash
+python main.py "The future of artificial intelligence"
+```
 
-### :keyboard: Activity: Your first branch
+**Option 2: Run an example**
+```bash
+python example_ai_only.py
+```
 
-1. Open a new browser tab and navigate to your newly made repository. Then, work on the steps in your second tab while you read the instructions in this tab.
-2. Navigate to the **< > Code** tab in the header menu of your repository.
+## 📖 Usage Guide
 
-   ![code-tab](/images/code-tab.png)
+### Command-Line Interface
 
-3. Click on the **main** branch drop-down.
+The main CLI provides several options:
 
-   ![main-branch-dropdown](/images/main-branch-dropdown.png)
+```bash
+# Basic usage with default settings (includes human participation)
+python main.py "Your topic here"
 
-4. In the field, name your branch `my-first-branch`. In this case, the name must be `my-first-branch` to trigger the course workflow.
-5. Click **Create branch: my-first-branch** to create your branch.
+# AI-only discussion (no human)
+python main.py "Climate change solutions" --no-human
 
-   ![create-branch-button](/images/create-branch-button.png)
+# Custom number of turns
+python main.py "Space exploration" --turns 8
 
-   The branch will automatically switch to the one you have just created.
-   The **main** branch drop-down bar will reflect your new branch and display the new branch name.
+# Custom setup wizard
+python main.py "Education technology" --custom
+```
 
-6. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+### Human Participation
 
-<footer>
+When you join a discussion as a human participant:
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+1. **Your Turn**: When it's your turn, you'll be prompted to enter your message
+2. **Skip**: Type `skip` to pass your turn without contributing
+3. **Quit**: Type `quit` to exit the discussion (AI agents will continue)
+
+### Example Programs
+
+Three example programs are included:
+
+1. **`example_ai_only.py`** - Simple AI-only discussion
+2. **`example_with_human.py`** - Discussion with human participation
+3. **`example_diverse.py`** - Large discussion with diverse AI personalities
+
+Run any example:
+```bash
+python example_ai_only.py
+python example_with_human.py
+python example_diverse.py
+```
+
+## 🎯 AI Agent Personalities
+
+Each AI agent has a unique personality that influences their perspective:
+
+| Personality | Description | Example Response Style |
+|------------|-------------|----------------------|
+| **Optimist** | Positive, enthusiastic, sees potential | "This has tremendous potential!" |
+| **Skeptic** | Critical, questioning, cautious | "We should consider the challenges..." |
+| **Analyst** | Data-driven, logical, methodical | "Looking at this analytically..." |
+| **Creative** | Innovative, imaginative, unconventional | "What if we approach this differently?" |
+| **Pragmatist** | Practical, action-oriented, realistic | "The practical approach would be..." |
+
+## 🔧 Programmatic Usage
+
+You can also use the Discussion API directly in your Python code:
+
+```python
+from discussion import DiscussionBuilder
+
+# Create a custom discussion
+discussion = (
+    DiscussionBuilder("Your topic here")
+    .add_ai_agent("Alice", "optimist")
+    .add_ai_agent("Bob", "skeptic")
+    .add_ai_agent("Charlie", "analyst")
+    .add_human_agent("You")
+    .set_max_turns(5)
+    .build()
+)
+
+# Run the discussion
+discussion.run()
+```
+
+## 📁 Project Structure
+
+```
+multi-ai-playground/
+├── agents.py              # Agent classes (AI and Human)
+├── discussion.py          # Discussion manager and builder
+├── main.py               # Main CLI application
+├── example_ai_only.py    # Example: AI-only discussion
+├── example_with_human.py # Example: Human participation
+├── example_diverse.py    # Example: Diverse agent discussion
+├── requirements.txt      # Python dependencies
+└── README.md            # This file
+```
+
+## 🎨 Customization
+
+### Creating Custom Agents
+
+You can extend the `AIAgent` class to create agents with custom behaviors:
+
+```python
+from agents import AIAgent
+
+class CustomAgent(AIAgent):
+    def respond(self, topic, conversation_history):
+        # Your custom logic here
+        return "Custom response"
+```
+
+### Adjusting Discussion Parameters
+
+- **Number of turns**: Control how long the discussion runs
+- **Number of agents**: Add as many agents as you want
+- **Agent mix**: Choose different combinations of personalities
+- **Human participation**: Include or exclude human participants
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+- Report bugs or suggest features via issues
+- Submit pull requests with improvements
+- Share interesting discussion topics or agent configurations
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🌐 Use Cases
+
+- **Education**: Explore different perspectives on complex topics
+- **Brainstorming**: Generate diverse ideas through multi-perspective discussion
+- **Research**: Study conversation dynamics and argument patterns
+- **Entertainment**: Create engaging dialogues on interesting subjects
+- **Training**: Practice moderation and discussion facilitation skills
+
+## 💡 Example Discussion Output
+
+```
+🎭 MULTI-AGENT DISCUSSION STARTING
+📌 Topic: The future of artificial intelligence
+👥 Participants: Alex (AI-optimist), Blake (AI-skeptic), Casey (AI-analyst), You (human)
+🔄 Maximum turns: 3
+
+============================================================
+🗣️  Alex [AI-optimist]:
+============================================================
+I think The future of artificial intelligence has tremendous 
+potential! it could revolutionize how we think about collaboration
+============================================================
+
+[... and so on ...]
+```
+
+## 🙏 Acknowledgments
+
+Built with Python and designed to foster meaningful multi-perspective discussions on any topic.
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/introduction-to-github) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2024 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+**Ready to start?** Run `python main.py "Your topic"` and join the conversation! 🚀

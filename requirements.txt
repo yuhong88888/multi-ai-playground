@@ -1,0 +1,2 @@
+# Multi-AI Playground Dependencies
+# For AI agent simulation and conversation management
