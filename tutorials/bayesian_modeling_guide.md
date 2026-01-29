@@ -465,11 +465,11 @@ import numpy as np
 # Generate AR(1) data
 np.random.seed(42)
 n = 100
-phi = 0.8
+phi_true = 0.8  # True parameter value
 y = np.zeros(n)
 y[0] = np.random.randn()
 for t in range(1, n):
-    y[t] = phi * y[t-1] + np.random.randn()
+    y[t] = phi_true * y[t-1] + np.random.randn()
 
 with pm.Model() as ar_model:
     # Priors
