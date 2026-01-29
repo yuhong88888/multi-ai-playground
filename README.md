@@ -75,17 +75,19 @@ When you join a discussion as a human participant:
 
 ### Example Programs
 
-Three example programs are included:
+Four example programs are included:
 
 1. **`example_ai_only.py`** - Simple AI-only discussion
 2. **`example_with_human.py`** - Discussion with human participation
 3. **`example_diverse.py`** - Large discussion with diverse AI personalities
+4. **`example_bayesian_modeling.py`** - Comprehensive discussion on Bayesian modeling in Python
 
 Run any example:
 ```bash
 python example_ai_only.py
 python example_with_human.py
 python example_diverse.py
+python example_bayesian_modeling.py
 ```
 
 ## 🎯 AI Agent Personalities
@@ -126,15 +128,41 @@ discussion.run()
 
 ```
 multi-ai-playground/
-├── agents.py              # Agent classes (AI and Human)
-├── discussion.py          # Discussion manager and builder
-├── main.py               # Main CLI application
-├── example_ai_only.py    # Example: AI-only discussion
-├── example_with_human.py # Example: Human participation
-├── example_diverse.py    # Example: Diverse agent discussion
-├── requirements.txt      # Python dependencies
-└── README.md            # This file
+├── agents.py                      # Agent classes (AI and Human)
+├── discussion.py                  # Discussion manager and builder
+├── main.py                       # Main CLI application
+├── example_ai_only.py            # Example: AI-only discussion
+├── example_with_human.py         # Example: Human participation
+├── example_diverse.py            # Example: Diverse agent discussion
+├── example_bayesian_modeling.py  # Example: Bayesian modeling discussion
+├── tutorials/                    # Educational guides and tutorials
+│   └── bayesian_modeling_guide.md # Comprehensive Bayesian modeling guide
+├── requirements.txt              # Python dependencies
+└── README.md                    # This file
 ```
+
+## 📚 Tutorials & Guides
+
+### Bayesian Modeling and Computation in Python
+
+A comprehensive guide covering Bayesian inference concepts, popular Python libraries, and practical applications:
+
+**📖 [Bayesian Modeling Guide](tutorials/bayesian_modeling_guide.md)**
+
+This tutorial includes:
+- **Key Concepts**: Prior distributions, likelihood, posterior, MCMC
+- **Popular Libraries**: PyMC, Stan, TensorFlow Probability, Pyro, ArviZ
+- **Code Examples**: Linear regression, hierarchical models, time series
+- **Practical Applications**: A/B testing, machine learning, finance, NLP
+- **Best Practices**: Prior selection, model diagnostics, validation
+- **Resources**: Books, courses, documentation, and community links
+
+**Run the interactive discussion:**
+```bash
+python example_bayesian_modeling.py
+```
+
+This example features a multi-agent discussion exploring Bayesian methods from different perspectives (analyst, pragmatist, optimist, skeptic, creative), demonstrating how AI agents can collaboratively explore complex data science topics.
 
 ## 🎨 Customization
 
@@ -172,9 +200,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌐 Use Cases
 
-- **Education**: Explore different perspectives on complex topics
+- **Education**: Explore different perspectives on complex topics (e.g., Bayesian modeling, machine learning)
+- **Data Science Learning**: Understand statistical concepts through multi-perspective discussions
 - **Brainstorming**: Generate diverse ideas through multi-perspective discussion
 - **Research**: Study conversation dynamics and argument patterns
+- **Technical Exploration**: Deep-dive into programming concepts, libraries, and best practices
 - **Entertainment**: Create engaging dialogues on interesting subjects
 - **Training**: Practice moderation and discussion facilitation skills
 
